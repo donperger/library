@@ -22,13 +22,6 @@ function Book(title, author, numOfPages, isread) {
     this.author = author
     this.numOfPages = numOfPages
     this.isread = isread
-    this.info = function () {
-        if (isread === true) {
-            return `${this.title} by ${this.author}, ${this.numOfPages} pages, have read`
-        } else {
-            return `${this.title} by ${this.author}, ${this.numOfPages} pages, not read yet`
-        }
-    }
 }
 
 function displayBooks() {
