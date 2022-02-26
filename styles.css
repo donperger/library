@@ -73,7 +73,7 @@ body {
     margin-left: 1rem;
 }
 
-.add {
+.add-new {
     margin: auto 1rem auto auto;
 	box-shadow: 0px 10px 14px -7px #276873;
 	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
@@ -89,14 +89,68 @@ body {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #3d768a;
 }
-.add:hover {
+.add-new:hover {
 	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
 	background-color:#408c99;
 }
-.add:active {
+.add-new:active {
 	position:relative;
 	top:1px;
 }
+
+/*add container*/
+
+.add-container {
+    background-color: #fff;
+    padding: 1.5rem;
+}
+
+fieldset {
+    border: 2px solid #424242;
+    position: relative;
+    padding: 2.5rem;
+}
+
+legend {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2rem;
+    font-size: 1.5rem;
+    background-color: #000;
+    color: #fff;
+}
+
+.add-form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem
+}
+
+.title-container,
+.author-container {
+    display: grid;
+    gap: .2rem;
+}
+
+.pages-container,
+.is-read-container,
+.add {
+    grid-column: 1 / 3;
+    place-self: center;
+}
+
+
+#book_title,
+#book_author {
+    width: 30rem;
+}
+
+#book_pages {
+    width: 3rem;
+}
+
+/*book container*/
 
 .book-container {
     display: grid;
