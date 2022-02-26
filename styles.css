@@ -51,6 +51,7 @@ table {
 
 *{
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    color: #424242;
 }
 
 body {
@@ -95,4 +96,35 @@ body {
 .add:active {
 	position:relative;
 	top:1px;
+}
+
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(2, 20rem);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.book-card {
+    box-sizing: border-box;
+    width: 20rem;
+    height: 10rem;
+    background-color: #f3f4f6;
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(148,148,148,1);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(148,148,148,1);
+    box-shadow: 10px 10px 20px 0px rgba(148,148,148,1);
+    border: 1px solid #424242;
+    border-radius: 1rem;
+    padding: .7rem;
+}
+
+.book-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.book-info {
+    font-size: 1rem;
+    font-style: italic;
 }
