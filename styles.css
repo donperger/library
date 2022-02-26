@@ -49,3 +49,50 @@ table {
 
 /*end of css reset*/
 
+*{
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #e5e7eb;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    background-color: #0e7490;
+}
+
+.header {
+    justify-self: center;
+    font-size: 3rem;
+    font-family: 'Abril Fatface';
+    color: #fff;
+    margin-left: 1rem;
+}
+
+.add {
+    margin: auto 1rem auto auto;
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+    border: none;
+	border-radius:1rem;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:1rem;
+	font-weight:bold;
+	padding:.6rem 2rem;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.add:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+.add:active {
+	position:relative;
+	top:1px;
+}
