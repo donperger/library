@@ -13,13 +13,13 @@ let library = [
         title: "Harry Potter and the Order of the Phoenix",
         author: "J. K. Rowling",
         numOfPages: 766,
-        isread: true
+        isRead: true
     },
     {
         title: "The Hobbit",
         author: "J.R.R. Tolkien",
         numOfPages: 295,
-        isread: false
+        isRead: false
     }
 ];
 
@@ -41,24 +41,24 @@ cancelButton.addEventListener("click", hideAddFrom);
 
 displayBooks();
 
-function Book(title, author, numOfPages, isread) {
+function Book(title, author, numOfPages, isRead) {
     this.title = title
     this.author = author
     this.numOfPages = numOfPages
-    this.isread = isread
+    this.isRead = isRead
 }
 
 function displayBooks() {
     bookContainer.clearChildren();
 
     library.map((book, i) => {
-        const bookCard = createBookCard(book.title, book.author, book.numOfPages, i+1)
+        const bookCard = createBookCard(book.title, book.author, book.numOfPages, i+1, book.isRead)
 
         bookContainer.appendChild(bookCard);
     })
 }
 
-function createBookCard(title, author, numOfPages, number) {
+function createBookCard(title, author, numOfPages, number, isRead) {
     const bookDiv = document.createElement("div");
     bookDiv.classList.add("book-card", number);
 
@@ -68,10 +68,33 @@ function createBookCard(title, author, numOfPages, number) {
     const infoDiv = document.createElement("div");
     infoDiv.classList.add("book-info");
 
+    const buttonContainer = document.createElement("div");
+
+    const isReadButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
+    isReadButton.classList.add("card-button");
+    
+    if (isRead) {
+        isReadButton.classList.add("read");
+    }
+
+    deleteButton.classList.add("card-btn")
+    
+    const isReadIcon = document.createElement("img");
+    isReadIcon.classList.add("is-read-icon")
+
+    const deleteIcon = document.createElement("img");
+    deleteIcon.src = "./icons/delete-outline.svg";
+
+    isReadButton.append(isReadIcon);
+    deleteButton.append(deleteIcon);
+
+    buttonContainer.append(isReadButton, deleteButton);
+
     titleDiv.innerText = title;
     infoDiv.innerText = `by ${author}, ${numOfPages} pages`;
 
-    bookDiv.append(titleDiv, infoDiv);
+    bookDiv.append(titleDiv, infoDiv, buttonContainer);
 
     return bookDiv;
 }
@@ -90,9 +113,9 @@ function addBook() {
     const title = titleInput.value;
     const author = authorInput.value;
     const numOfPages = numOfPagesInput.value;
-    const isread = isReadInput.checked;
+    const isRead = isReadInput.checked;
 
-    const newBook = new Book(title, author, numOfPages, isread);
+    const newBook = new Book(title, author, numOfPages, isRead);
 
     library.push(newBook);
 
