@@ -82,6 +82,7 @@ function showAddFrom() {
 }
 
 function hideAddFrom() {
+    clearInputFields();
     addFromContainer.style.display = "none"
 }
 
@@ -95,6 +96,14 @@ function addBook() {
 
     library.push(newBook);
 
+    clearInputFields();
     hideAddFrom();
     displayBooks();
+}
+
+function clearInputFields() {
+    titleInput.value = "";
+    authorInput.value = "";
+    numOfPagesInput.value = "";
+    isReadInput.checked = false;
 }
