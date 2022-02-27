@@ -49,6 +49,10 @@ table {
 
 /*end of css reset*/
 
+:root{
+    --carg-bg-color: #f3f4f6;
+}
+
 *{
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     color: #424242;
@@ -214,13 +218,15 @@ input[type="number"] {
     box-sizing: border-box;
     width: 20rem;
     height: 10rem;
-    background-color: #f3f4f6;
+    background-color: var(--carg-bg-color);
     -webkit-box-shadow: 10px 10px 20px 0px rgba(148,148,148,1);
     -moz-box-shadow: 10px 10px 20px 0px rgba(148,148,148,1);
     box-shadow: 10px 10px 20px 0px rgba(148,148,148,1);
     border: 1px solid #424242;
     border-radius: 1rem;
     padding: .7rem;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
 }
 
 .book-title {
@@ -232,4 +238,44 @@ input[type="number"] {
 .book-info {
     font-size: 1rem;
     font-style: italic;
+}
+
+.card-btn-container {
+    display: flex;
+}
+
+.card-btn {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color: var(--carg-bg-color);
+	border-radius:6px;
+	/* border:1px solid #dcdcdc; */
+    border: none;
+    display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+    margin-left: auto;
+    width: 3rem;
+    align-content: center;
+}
+.card-btn:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #b3b3b3 100%);
+	background-color:#f6f6f6;
+}
+.card-btn:active {
+	position:relative;
+	top:1px;
+}
+
+.delete-btn {
+    margin-left: 1rem;
+}
+
+.is-read-icon {
+    content: url("./icons/notebook-check-outline.svg");
+}
+
+.read {
+    content: url("./icons/notebook-remove-outline.svg");
 }
