@@ -103,7 +103,7 @@ body {
 .add-container {
     background-color: #fff;
     padding: 1.5rem;
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
