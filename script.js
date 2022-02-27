@@ -73,15 +73,14 @@ function createBookCard(title, author, numOfPages, number, isRead) {
     const isReadButton = document.createElement("button");
     const deleteButton = document.createElement("button");
     isReadButton.classList.add("card-button");
-    
-    if (isRead) {
-        isReadButton.classList.add("read");
-    }
 
     deleteButton.classList.add("card-btn")
     
     const isReadIcon = document.createElement("img");
     isReadIcon.classList.add("is-read-icon")
+    if (isRead) {
+        isReadIcon.classList.add("read");
+    }
 
     const deleteIcon = document.createElement("img");
     deleteIcon.src = "./icons/delete-outline.svg";
