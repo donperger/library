@@ -14,10 +14,14 @@ let library = [
 ];
 
 const bookContainer = document.querySelector(".book-container");
-const addNewBookButton = document.querySelector(".add-new");
 const addFromContainer = document.querySelector(".add-container");
 
-addNewBookButton.addEventListener('click', showAddFrom);
+const addNewBookButton = document.querySelector(".add-new");
+const addBookButton = document.querySelector(".add");
+const cancelButton = document.querySelector(".cancel");
+
+addNewBookButton.addEventListener("click", showAddFrom);
+cancelButton.addEventListener("click", hideAddFrom);
 
 displayBooks();
 
@@ -56,4 +60,8 @@ function createBookCard(title, author, numOfPages, number) {
 
 function showAddFrom() {
     addFromContainer.style.display = "flex";
+}
+
+function hideAddFrom() {
+    addFromContainer.style.display = "none"
 }
