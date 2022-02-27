@@ -75,7 +75,7 @@ function createBookCard(title, author, numOfPages, number, isRead) {
     const deleteButton = document.createElement("button");
     isReadButton.classList.add("card-btn");
 
-    deleteButton.classList.add("card-btn")
+    deleteButton.classList.add("card-btn", "delete-btn")
     
     const isReadIcon = document.createElement("img");
     isReadIcon.classList.add("is-read-icon")
