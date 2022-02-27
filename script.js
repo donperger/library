@@ -14,6 +14,10 @@ let library = [
 ];
 
 const bookContainer = document.querySelector(".book-container");
+const addNewBookButton = document.querySelector(".add-new");
+const addFromContainer = document.querySelector(".add-container");
+
+addNewBookButton.addEventListener('click', showAddFrom);
 
 displayBooks();
 
@@ -48,4 +52,8 @@ function createBookCard(title, author, numOfPages, number) {
     bookDiv.append(titleDiv, infoDiv);
 
     return bookDiv;
+}
+
+function showAddFrom() {
+    addFromContainer.style.display = "flex";
 }
