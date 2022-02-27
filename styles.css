@@ -51,6 +51,7 @@ table {
 
 :root{
     --carg-bg-color: #f3f4f6;
+    --header-height: 5rem;
 }
 
 *{
@@ -65,7 +66,7 @@ body {
 .header-container {
     display: flex;
     align-items: center;
-    height: 5rem;
+    height: var(--header-height);
     background-color: #0e7490;
 }
 
@@ -105,14 +106,18 @@ body {
 /*add container*/
 
 .add-container {
-    background-color: #fff;
+    background-color: rgba(204, 204, 204, 0.7);
     padding: 1.5rem;
     display: none;
     justify-content: center;
+    position: fixed;
+    top: var(--header-height);
+    width: 100vw;
 }
 
 fieldset {
     border: 2px solid #424242;
+    background-color: #fff;
     position: relative;
     padding: 2.5rem;
     width: -webkit-min-content;
