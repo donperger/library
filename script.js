@@ -69,10 +69,11 @@ function createBookCard(title, author, numOfPages, number, isRead) {
     infoDiv.classList.add("book-info");
 
     const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("card-btn-container")
 
     const isReadButton = document.createElement("button");
     const deleteButton = document.createElement("button");
-    isReadButton.classList.add("card-button");
+    isReadButton.classList.add("card-btn");
 
     deleteButton.classList.add("card-btn")
     
