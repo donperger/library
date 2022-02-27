@@ -10,12 +10,14 @@ if( typeof Element.prototype.clearChildren === 'undefined' ) {
 
 let library = [
     {
+        id: 1,
         title: "Harry Potter and the Order of the Phoenix",
         author: "J. K. Rowling",
         numOfPages: 766,
         isRead: true
     },
     {
+        id: 2,
         title: "The Hobbit",
         author: "J.R.R. Tolkien",
         numOfPages: 295,
@@ -41,7 +43,8 @@ cancelButton.addEventListener("click", hideAddFrom);
 
 displayBooks();
 
-function Book(title, author, numOfPages, isRead) {
+function Book(id, title, author, numOfPages, isRead) {
+    this.id = id
     this.title = title
     this.author = author
     this.numOfPages = numOfPages
