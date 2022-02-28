@@ -214,9 +214,10 @@ input[type="number"] {
 
 .book-container {
     display: grid;
-    grid-template-columns: repeat(2, 20rem);
+    grid-template-columns: repeat(auto-fill, 20rem);
     gap: 1rem;
     padding: 1rem;
+    justify-content: center;
 }
 
 .book-card {
@@ -232,6 +233,10 @@ input[type="number"] {
     padding: .7rem;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
+}
+
+.book-read {
+    text-decoration: line-through;
 }
 
 .book-title {
