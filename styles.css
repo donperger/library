@@ -136,6 +136,12 @@ legend {
     color: #fff;
 }
 
+.required {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+}
+
 .add-form-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
