@@ -54,16 +54,24 @@ function Book(id, title, author, numOfPages, isRead) {
 function displayBooks() {
     bookContainer.clearChildren();
 
-    library.map((book, i) => {
-        const bookCard = createBookCard(book.title, book.author, book.numOfPages, i+1, book.isRead)
+    library.map((book) => {
+        const bookCard = createBookCard(book.title, book.author, book.numOfPages, book.id, book.isRead)
 
         bookContainer.appendChild(bookCard);
     })
+
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+
+    deleteButtons.forEach(button => button.addEventListener("click", () => {
+        const id = Number(button.classList[2]);
+        
+        deleteBook(id);
+    }))
 }
 
 function createBookCard(title, author, numOfPages, number, isRead) {
     const bookDiv = document.createElement("div");
-    bookDiv.classList.add("book-card", number);
+    bookDiv.classList.add("book-card");
 
     const titleDiv = document.createElement("div");
     titleDiv.classList.add("book-title");
@@ -78,7 +86,7 @@ function createBookCard(title, author, numOfPages, number, isRead) {
     const deleteButton = document.createElement("button");
     isReadButton.classList.add("card-btn");
 
-    deleteButton.classList.add("card-btn", "delete-btn")
+    deleteButton.classList.add("card-btn", "delete-btn", number)
     
     const isReadIcon = document.createElement("img");
     isReadIcon.classList.add("is-read-icon")
@@ -113,14 +121,15 @@ function hideAddFrom() {
 }
 
 function addBook() {
+    const id = library.length + 1;
     const title = titleInput.value;
     const author = authorInput.value;
     const numOfPages = numOfPagesInput.value;
     const isRead = isReadInput.checked;
 
-    const newBook = new Book(title, author, numOfPages, isRead);
+    const newBook = new Book(id, title, author, numOfPages, isRead);
 
-    library.push(newBook);
+    library.push(newBook);;
 
     clearInputFields();
     hideAddFrom();
@@ -132,4 +141,10 @@ function clearInputFields() {
     authorInput.value = "";
     numOfPagesInput.value = "";
     isReadInput.checked = false;
+}
+
+function deleteBook(id) {
+    library =library.filter(bookObj => bookObj.id !== id);
+
+    displayBooks();
 }
