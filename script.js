@@ -67,9 +67,17 @@ function displayBooks() {
         
         deleteBook(id);
     }))
+
+    const readButton = document.querySelectorAll(".mark-btn");
+
+    readButton.forEach(button => button.addEventListener("click", () => {
+        const id = Number(button.classList[2]);
+
+        switchReadProperty(id);
+    }))
 }
 
-function createBookCard(title, author, numOfPages, number, isRead) {
+function createBookCard(title, author, numOfPages, id, isRead) {
     const bookDiv = document.createElement("div");
     bookDiv.classList.add("book-card");
 
@@ -84,14 +92,16 @@ function createBookCard(title, author, numOfPages, number, isRead) {
 
     const isReadButton = document.createElement("button");
     const deleteButton = document.createElement("button");
-    isReadButton.classList.add("card-btn");
+    isReadButton.classList.add("card-btn", "mark-btn", id);
 
-    deleteButton.classList.add("card-btn", "delete-btn", number)
+    deleteButton.classList.add("card-btn", "delete-btn", id)
     
     const isReadIcon = document.createElement("img");
-    isReadIcon.classList.add("is-read-icon")
+    isReadIcon.classList.add("is-read-icon");
+
     if (isRead) {
         isReadIcon.classList.add("read");
+        bookDiv.classList.add("book-read");
     }
 
     const deleteIcon = document.createElement("img");
@@ -121,7 +131,7 @@ function hideAddFrom() {
 }
 
 function addBook() {
-    const id = library.length + 1;
+    const id = library[library.length - 1].id + 1;
     const title = titleInput.value;
     const author = authorInput.value;
     const numOfPages = numOfPagesInput.value;
@@ -144,7 +154,19 @@ function clearInputFields() {
 }
 
 function deleteBook(id) {
-    library =library.filter(bookObj => bookObj.id !== id);
+    library = library.filter(bookObj => bookObj.id !== id);
+
+    displayBooks();
+}
+
+function switchReadProperty(id) {
+    library = library.map(bookObj => {
+        if (id === bookObj.id) {
+            bookObj.isRead = !bookObj.isRead;
+        }
+
+        return bookObj
+    })
 
     displayBooks();
 }
