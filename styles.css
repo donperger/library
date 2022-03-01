@@ -216,6 +216,13 @@ input[type="number"] {
 	top:1px;
 }
 
+.disclaimer {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    color: red;
+}
+
 /*book container*/
 
 .book-container {
@@ -285,7 +292,7 @@ input[type="number"] {
 }
 
 .delete-btn {
-    margin-left: 1rem;
+    margin-left: .5rem;
 }
 
 .is-read-icon {
