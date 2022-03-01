@@ -38,7 +38,17 @@ const numOfPagesInput = document.querySelector("#book_pages");
 const isReadInput = document.querySelector("#is_read")
 
 addNewBookButton.addEventListener("click", showAddFrom);
-addBookButton.addEventListener("click", addBook);
+addBookButton.addEventListener("click", () => {
+    if( titleInput.value && authorInput.value && numOfPagesInput.value) {
+        addBook();
+    } else if(!titleInput.value) {
+        window.alert("You need to fill out the Title field!")
+    } else if(!authorInput.value) {
+        window.alert("You need to fill out the Author field!")
+    } else if(!numOfPagesInput.value) {
+        window.alert("You need to fill out the Number of pages field!")
+    }
+});
 cancelButton.addEventListener("click", hideAddFrom);
 
 displayBooks();
