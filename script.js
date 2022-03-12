@@ -53,12 +53,14 @@ cancelButton.addEventListener("click", hideAddFrom);
 
 displayBooks();
 
-function Book(id, title, author, numOfPages, isRead) {
-    this.id = id
-    this.title = title
-    this.author = author
-    this.numOfPages = numOfPages
-    this.isRead = isRead
+class Book {
+    constructor(id, title, author, numOfPages, isRead) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.numOfPages = numOfPages;
+        this.isRead = isRead;
+    }
 }
 
 function displayBooks() {
